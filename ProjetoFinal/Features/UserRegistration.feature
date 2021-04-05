@@ -7,7 +7,8 @@ Scenario: Complete a new registration
 	Given That I'm a new client without registration
 	When I click on the Sign In button
 	Then I'll be redirected to the Login page
-	When I click on the Create an Account button
+	When I insert the email value 
+	And I click on the Create an Account button
 	Then I'll be redirected to the Registration page
 	When I insert all mandatory values
 	Then I'll be able to complete my registration at the online store

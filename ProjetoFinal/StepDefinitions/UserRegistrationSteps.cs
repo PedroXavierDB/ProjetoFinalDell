@@ -1,4 +1,5 @@
-﻿using ProjetoFinal.TestContext;
+﻿using ProjetoFinal.PageObjects;
+using ProjetoFinal.TestContext;
 using TechTalk.SpecFlow;
 
 namespace ProjetoFinal.StepDefinitions
@@ -16,21 +17,40 @@ namespace ProjetoFinal.StepDefinitions
         [Given(@"That I'm a new client without registration")]
         public void GivenThatIMANewClientWithoutRegistration()
         {
+            HomePO homePage = new HomePO(_context.Driver);
+            homePage.GoTo();
         }
         
         [When(@"I click on the Sign In button")]
         public void WhenIClickOnTheSignInButton()
         {
+            HomePO homePage = new HomePO(_context.Driver);
+            homePage.GoToLoginPage();
         }
-        
+
+        [When(@"I insert the email value")]
+        public void WhenIInsertTheEmailValue()
+        {
+            LoginPO loginPage = new LoginPO(_context.Driver);
+            loginPage.ToFillSignInEmailField("pewx@hotmail.com");
+        }
+
         [When(@"I click on the Create an Account button")]
         public void WhenIClickOnTheCreateAnAccountButton()
         {
+            LoginPO loginPage = new LoginPO(_context.Driver);
+            loginPage.ToClickSignInBtn();
         }
         
         [When(@"I insert all mandatory values")]
         public void WhenIInsertAllMandatoryValues()
         {
+            RegistrationPO registrationPage = new RegistrationPO(_context.Driver);
+            registrationPage.ToFillPersonalPart("Pedro", "Xavier", "12345");
+            registrationPage.ToFillAddressPart("Pedro", "Xavier", "Rua Coronel 27", "Porto Alegre",
+                "Texas", "United States", "90620", "51995968401");
+            registrationPage.ToClickRegisterBtn();
+            System.Threading.Thread.Sleep(8000);
         }
         
         [When(@"I access the Sign In page")]

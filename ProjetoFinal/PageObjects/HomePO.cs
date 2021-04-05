@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace ProjetoFinal.PageObjects
 {
-    public class HomePagePO
+    public class HomePO : TemplatePO
     {
-        private IWebDriver _driver;
-
-        public HomePagePO(IWebDriver driver)
+        public HomePO(IWebDriver driver) : base(driver)
         {
-            _driver = driver;
+
         }
 
         public void GoTo()
