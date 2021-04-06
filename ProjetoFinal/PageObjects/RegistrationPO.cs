@@ -1,10 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetoFinal.PageObjects
 {
@@ -54,15 +50,9 @@ namespace ProjetoFinal.PageObjects
             selectElement.SelectByText(country);
         }
 
-        public void ToFillAddressPart(string firstName, string lastName, string address,
+        public void ToFillAddressPart(string address,
             string city, string state, string country, string zip, string mobilePhone)
         {
-            IWebElement addressFirstNameField = _driver.FindElement(_byAddressFirstNameField);
-            addressFirstNameField.SendKeys(firstName);
-
-            IWebElement addressLastNameField = _driver.FindElement(_byAddressLastNameField);
-            addressLastNameField.SendKeys(lastName);
-
             IWebElement addressAddressField = _driver.FindElement(_byAddressAddressField);
             addressAddressField.SendKeys(address);
 
@@ -83,6 +73,12 @@ namespace ProjetoFinal.PageObjects
         {
             IWebElement registerBtn = _driver.FindElement(_byRegisterBtn);
             registerBtn.Click();
+        }
+
+        public void ToWaitPageLoads()
+        {
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(_byPersonalFirstNameField));
         }
     }
 }

@@ -34,3 +34,4 @@ C:\Users\pedro.xavier\source\repos\ProjetoFinal\ProjetoFinal\obj\Debug\ProjetoFi
 C:\Users\pedro.xavier\source\repos\ProjetoFinal\ProjetoFinal\obj\Debug\ProjetoFinal.csproj.CopyComplete
 C:\Users\pedro.xavier\source\repos\ProjetoFinal\ProjetoFinal\obj\Debug\ProjetoFinal.dll
 C:\Users\pedro.xavier\source\repos\ProjetoFinal\ProjetoFinal\obj\Debug\ProjetoFinal.pdb
+C:\Users\pedro.xavier\source\repos\ProjetoFinal\ProjetoFinal\bin\Debug\SeleniumExtras.WaitHelpers.dll
