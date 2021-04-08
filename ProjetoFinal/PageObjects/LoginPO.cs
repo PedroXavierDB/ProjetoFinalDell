@@ -9,6 +9,7 @@ namespace ProjetoFinal.PageObjects
         private By _byLoginEmailField => By.Id("email");
         private By _byLoginPasswordField => By.Id("passwd");
         private By _byLoginBtn => By.Id("SubmitLogin");
+        private By _byForgotPasswordBtn => By.CssSelector("#login_form > div > p.lost_password.form-group > a");
 
         public LoginPO(IWebDriver driver) : base(driver)
         {
@@ -40,6 +41,12 @@ namespace ProjetoFinal.PageObjects
         {
             IWebElement loginBtn = _driver.FindElement(_byLoginBtn);
             loginBtn.Click();
+        }
+
+        public void ToClickForgotPasswordBtn()
+        {
+            IWebElement forgotPasswordBtn = _driver.FindElement(_byForgotPasswordBtn);
+            forgotPasswordBtn.Click();
         }
     }
 }

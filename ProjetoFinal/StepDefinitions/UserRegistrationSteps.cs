@@ -25,8 +25,8 @@ namespace ProjetoFinal.StepDefinitions
             _registrationPage = new RegistrationPO(_context.Driver);
         }
 
-        [Given(@"That I'm a new client without registration")]
-        public void GivenThatIMANewClientWithoutRegistration()
+        [Given(@"That I am a new client without registration")]
+        public void GivenThatIAmANewClientWithoutRegistration()
         {
             _homePage.ToGoToHomePageByUrl();
         }
@@ -65,8 +65,8 @@ namespace ProjetoFinal.StepDefinitions
             WhenIClickOnTheCreateAnAccountButtonOfTheLoginPage();     
         }
         
-        [When(@"I don't write in at least one of the mandatory fields")]
-        public void WhenIDonTWriteInAtLeastOneOfTheMandatoryFields()
+        [When(@"I do not write in at least one of the mandatory fields")]
+        public void WhenIDoNotWriteInAtLeastOneOfTheMandatoryFields()
         {
             _registrationPage.ToFillPersonalPart(_user.FirstName, _user.LastName, _user.Password);
         }
@@ -77,15 +77,15 @@ namespace ProjetoFinal.StepDefinitions
             _registrationPage.ToClickRegisterBtn();
         }
 
-        [Then(@"I'll be redirected to the Login page")]
-        public void ThenILlBeRedirectedToTheLoginPage()
+        [Then(@"I will be redirected to the Login page")]
+        public void ThenIWillBeRedirectedToTheLoginPage()
         {
             StringAssert.Contains(_context.Driver.Url.ToLower(), "controller=authentication".ToLower());
             StringAssert.Contains(_context.Driver.PageSource.ToLower(), "Authentication".ToLower());
         }
         
-        [Then(@"I'll be redirected to the Registration page")]
-        public void ThenILlBeRedirectedToTheRegistrationPage()
+        [Then(@"I will be redirected to the Registration page")]
+        public void ThenIWillBeRedirectedToTheRegistrationPage()
         {
             _registrationPage.ToWaitPageLoads();
 
@@ -95,8 +95,8 @@ namespace ProjetoFinal.StepDefinitions
 
         }
         
-        [Then(@"I'll be able to complete my registration at the online store")]
-        public void ThenILlBeAbleToCompleteMyRegistrationAtTheOnlineStore()
+        [Then(@"I will be able to complete my registration at the online store")]
+        public void ThenIWillBeAbleToCompleteMyRegistrationAtTheOnlineStore()
         {
             StringAssert.Contains(_context.Driver.Url.ToLower(), "controller=my-account".ToLower());
             StringAssert.Contains(_context.Driver.PageSource.ToLower(), "My account".ToLower());

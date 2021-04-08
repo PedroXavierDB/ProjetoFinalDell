@@ -26,8 +26,8 @@ namespace ProjetoFinal.StepDefinitions
             _registrationPage = new RegistrationPO(_context.Driver);
         }
 
-        [Given(@"That I'm a user with a registered account")]
-        public void GivenThatIMAUserWithARegisteredAccount()
+        [Given(@"That I am a user with a registered account")]
+        public void GivenThatIAmAUserWithARegisteredAccount()
         {
             _homePage.ToGoToHomePageByUrl();
             _homePage.ToGoToLoginPage();
@@ -40,8 +40,8 @@ namespace ProjetoFinal.StepDefinitions
             _myAccountPage.SignOut();
         }
         
-        [Given(@"That I'm at the Sign In page")]
-        public void GivenThatIMAtTheSignInPage()
+        [Given(@"That I am on the Sign In page")]
+        public void GivenThatIAmOnTheSignInPage()
         {
             _homePage.ToGoToHomePageByUrl();
             _homePage.ToGoToLoginPage();
@@ -97,8 +97,8 @@ namespace ProjetoFinal.StepDefinitions
             StringAssert.Contains(_context.Driver.PageSource.ToLower(), "My personal information".ToLower());
         }
         
-        [Then(@"The error message ""(.*)"" should be displayed")]
-        public void ThenTheErrorMessageShouldBeDisplayed(string p0)
+        [Then(@"The message ""(.*)"" should be displayed on the Sign In page")]
+        public void ThenTheMessageShouldBeDisplayedOnTheSignInPage(string p0)
         {
             StringAssert.Contains(_context.Driver.PageSource.ToLower(), p0.ToLower());
         }
