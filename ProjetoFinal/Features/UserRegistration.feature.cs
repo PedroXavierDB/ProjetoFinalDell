@@ -185,7 +185,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("That I\'m a new client without registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 19
- testRunner.When("I access the Sign In page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I access the Registration page using an unregistered email", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 20
  testRunner.And("I don\'t write in at least one of the mandatory fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

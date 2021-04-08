@@ -16,7 +16,7 @@ Scenario: Complete a new registration
 
 Scenario: Fail to complete a new registration
 	Given That I'm a new client without registration
-	When I access the Sign In page
+	When I access the Registration page using an unregistered email
 	And I don't write in at least one of the mandatory fields
 	And I click on the Create an Account button of the Registration page
 	Then A message should be displayed informing that all mandatory fields must be completed

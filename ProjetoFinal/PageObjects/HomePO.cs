@@ -9,7 +9,7 @@ namespace ProjetoFinal.PageObjects
 
         }
 
-        public void GoTo()
+        public void ToGoToHomePageByUrl()
         {
             _driver.Navigate().GoToUrl("http://automationpractice.com/index.php");
         }
