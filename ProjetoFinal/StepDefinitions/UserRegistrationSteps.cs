@@ -2,6 +2,7 @@
 using ProjetoFinal.DataStructures;
 using ProjetoFinal.PageObjects;
 using ProjetoFinal.TestContext;
+using System;
 using TechTalk.SpecFlow;
 
 namespace ProjetoFinal.StepDefinitions
@@ -10,12 +11,12 @@ namespace ProjetoFinal.StepDefinitions
     public class UserRegistrationSteps
     {
         private Context _context;
-        private User _user;
+        private  User _user;
         private HomePO _homePage;
         private LoginPO _loginPage;
         private RegistrationPO _registrationPage;
 
-        public UserRegistrationSteps(Context context, User user)
+        public UserRegistrationSteps(Context context)
         {
             _context = context;
             _user = new User();
@@ -27,13 +28,13 @@ namespace ProjetoFinal.StepDefinitions
         [Given(@"That I'm a new client without registration")]
         public void GivenThatIMANewClientWithoutRegistration()
         {
-            _homePage.GoTo();
+            _homePage.ToGoToHomePageByUrl();
         }
         
         [When(@"I click on the Sign In button")]
         public void WhenIClickOnTheSignInButton()
         {
-            _homePage.GoToLoginPage();
+            _homePage.ToGoToLoginPage();
         }
 
         [When(@"I insert the email value")]
@@ -56,13 +57,12 @@ namespace ProjetoFinal.StepDefinitions
                 _user.Country, _user.Zip, _user.MobilePhone);
         }
         
-        [When(@"I access the Sign In page")]
-        public void WhenIAccessTheSignInPage()
+        [When(@"I access the Registration page using an unregistered email")]
+        public void WhenIAccessTheRegistrationPage()
         {
             WhenIClickOnTheSignInButton();
             WhenIInsertTheEmailValue();
-            WhenIClickOnTheCreateAnAccountButtonOfTheLoginPage();
-            
+            WhenIClickOnTheCreateAnAccountButtonOfTheLoginPage();     
         }
         
         [When(@"I don't write in at least one of the mandatory fields")]
@@ -80,8 +80,8 @@ namespace ProjetoFinal.StepDefinitions
         [Then(@"I'll be redirected to the Login page")]
         public void ThenILlBeRedirectedToTheLoginPage()
         {
-            StringAssert.Contains(_context.Driver.Url, "controller=authentication");
-            StringAssert.Contains(_context.Driver.PageSource, "Authentication");
+            StringAssert.Contains(_context.Driver.Url.ToLower(), "controller=authentication".ToLower());
+            StringAssert.Contains(_context.Driver.PageSource.ToLower(), "Authentication".ToLower());
         }
         
         [Then(@"I'll be redirected to the Registration page")]
@@ -89,26 +89,26 @@ namespace ProjetoFinal.StepDefinitions
         {
             _registrationPage.ToWaitPageLoads();
 
-            StringAssert.Contains(_context.Driver.PageSource, "First name");
-            StringAssert.Contains(_context.Driver.PageSource, "Country");
-            StringAssert.Contains(_context.Driver.PageSource, "State");
+            StringAssert.Contains(_context.Driver.PageSource.ToLower(), "First name".ToLower());
+            StringAssert.Contains(_context.Driver.PageSource.ToLower(), "Country".ToLower());
+            StringAssert.Contains(_context.Driver.PageSource.ToLower(), "State".ToLower());
 
         }
         
         [Then(@"I'll be able to complete my registration at the online store")]
         public void ThenILlBeAbleToCompleteMyRegistrationAtTheOnlineStore()
         {
-            StringAssert.Contains(_context.Driver.Url, "controller=my-account");
-            StringAssert.Contains(_context.Driver.PageSource, "My account");
-            StringAssert.Contains(_context.Driver.PageSource, "My personal information");
+            StringAssert.Contains(_context.Driver.Url.ToLower(), "controller=my-account".ToLower());
+            StringAssert.Contains(_context.Driver.PageSource.ToLower(), "My account".ToLower());
+            StringAssert.Contains(_context.Driver.PageSource.ToLower(), "My personal information".ToLower());
         }
         
         [Then(@"A message should be displayed informing that all mandatory fields must be completed")]
         public void ThenAMessageShouldBeDisplayedInformingThatAllMandatoryFieldsMustBeCompleted()
         {
-            StringAssert.Contains(_context.Driver.PageSource, "There are 5 errors");
-            StringAssert.Contains(_context.Driver.PageSource, "You must register at least one phone number.");
-            StringAssert.Contains(_context.Driver.PageSource, "This country requires you to choose a State.");
+            StringAssert.Contains(_context.Driver.PageSource.ToLower(), "There are 5 errors".ToLower());
+            StringAssert.Contains(_context.Driver.PageSource.ToLower(), "You must register at least one phone number.".ToLower());
+            StringAssert.Contains(_context.Driver.PageSource.ToLower(), "This country requires you to choose a State.".ToLower());
         }
     }
 }

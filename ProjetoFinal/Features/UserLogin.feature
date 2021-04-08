@@ -5,15 +5,14 @@ the Sign In page and do my login during my shoppings.
 @mytag
 Scenario: Login success
 	Given That I'm a user with a registered account
-	And I'm at the Sign In page
+	And That I'm at the Sign In page
 	When I write correctly my email and password
 	And I try to do my login
 	Then I will login in my account
 
 Scenario: Login without email and password
 	Given That I'm at the Sign In page
-	When I don't both write my email and password
-	And I try to do my login
+	When I try to do my login without writing my email and password
 	Then The error message "An email address required." should be displayed
 
 Scenario: Login without password
