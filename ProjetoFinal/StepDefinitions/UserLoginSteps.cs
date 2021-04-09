@@ -3,6 +3,7 @@ using ProjetoFinal.DataStructures;
 using ProjetoFinal.PageObjects;
 using ProjetoFinal.TestContext;
 using TechTalk.SpecFlow;
+using ProjetoFinal.Config;
 
 namespace ProjetoFinal.StepDefinitions
 {
@@ -13,8 +14,6 @@ namespace ProjetoFinal.StepDefinitions
         private User _user;
         private HomePO _homePage;
         private LoginPO _loginPage;
-        private MyAccountPO _myAccountPage;
-        private RegistrationPO _registrationPage;
         
         public UserLoginSteps(Context context)
         {
@@ -22,22 +21,6 @@ namespace ProjetoFinal.StepDefinitions
             _user = new User();
             _homePage = new HomePO(_context.Driver);
             _loginPage = new LoginPO(_context.Driver);
-            _myAccountPage = new MyAccountPO(_context.Driver);
-            _registrationPage = new RegistrationPO(_context.Driver);
-        }
-
-        [Given(@"That I am a user with a registered account")]
-        public void GivenThatIAmAUserWithARegisteredAccount()
-        {
-            _homePage.ToGoToHomePageByUrl();
-            _homePage.ToGoToLoginPage();
-            _loginPage.ToFillSignInEmailField(_user.Email);
-            _loginPage.ToClickSignInBtn();
-            _registrationPage.ToFillPersonalPart(_user.FirstName, _user.LastName, _user.Password);
-            _registrationPage.ToFillAddressPart(_user.Address, _user.City, _user.State,
-                _user.Country, _user.Zip, _user.MobilePhone);
-            _registrationPage.ToClickRegisterBtn();
-            _myAccountPage.SignOut();
         }
         
         [Given(@"That I am on the Sign In page")]
@@ -46,11 +29,12 @@ namespace ProjetoFinal.StepDefinitions
             _homePage.ToGoToHomePageByUrl();
             _homePage.ToGoToLoginPage();
         }
-        
-        [When(@"I write correctly my email and password")]
-        public void WhenIWriteCorrectlyMyEmailAndPassword()
+
+        [When(@"I write my registered email and password")]
+        public void WhenIWriteMyRegisteredEmailAndPassword()
         {
-            _loginPage.ToFillLoginEmailAndPasswordFields(_user.Email, _user.Password);
+            _loginPage.ToFillLoginEmailAndPasswordFields(ReadConfigs.ReadSetting("Email"),
+                ReadConfigs.ReadSetting("Password"));
         }
 
         [When(@"I try to do my login without writing my email and password")]

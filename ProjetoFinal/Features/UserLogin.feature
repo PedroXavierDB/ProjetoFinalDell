@@ -4,9 +4,8 @@ the Sign In page and do my login during my shoppings.
 
 @mytag
 Scenario: Login success
-	Given That I am a user with a registered account
-	And That I am on the Sign In page
-	When I write correctly my email and password
+	Given That I am on the Sign In page
+	When I write my registered email and password
 	And I try to do my login
 	Then I will login in my account
 
