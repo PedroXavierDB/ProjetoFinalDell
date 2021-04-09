@@ -9,8 +9,7 @@ Scenario: To access the Forgot Password page with success
 	Then I will be redirected to the Forgot Password page
 
 Scenario: Password recover with success
-	Given That I am a user with a registered account two
-	And That I am on the Forgot Password page
+	Given That I am on the Forgot Password page
 	When I write my already registered email on the Forgot Password page
 	And I click on the Retrieve Password button 
 	Then The message "A confirmation email has been sent to your address" should be displayed on the Forgot Password page
