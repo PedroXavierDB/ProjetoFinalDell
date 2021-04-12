@@ -8,7 +8,7 @@ namespace ProjetoFinal.PageObjects
         private By _bySignInBtn => By.ClassName("login");
         private By _bySignOutBtn => By.ClassName("logout");
         private By _byLogoImg => By.ClassName("logo img-responsive");
-        private By _bySearchBox => By.Id("searchbox");
+        private By _bySearchBar => By.Id("search_query_top");
 
         public TemplatePO(IWebDriver driver)
         {
@@ -35,7 +35,7 @@ namespace ProjetoFinal.PageObjects
 
         public void ToSearchByTheSearchBox(string text)
         {
-            IWebElement searchBox = _driver.FindElement(_bySearchBox);
+            IWebElement searchBox = _driver.FindElement(_bySearchBar);
             searchBox.SendKeys(text);
             searchBox.Submit();
         }

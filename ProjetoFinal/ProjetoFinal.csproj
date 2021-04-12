@@ -115,8 +115,10 @@
     <Compile Include="PageObjects\LoginPO.cs" />
     <Compile Include="PageObjects\MyAccountPO.cs" />
     <Compile Include="PageObjects\RegistrationPO.cs" />
+    <Compile Include="PageObjects\SearchPO.cs" />
     <Compile Include="PageObjects\TemplatePO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepDefinitions\StoreSearchBarSteps.cs" />
     <Compile Include="StepDefinitions\UserForgotPasswordSteps.cs" />
     <Compile Include="StepDefinitions\UserLoginSteps.cs" />
     <Compile Include="StepDefinitions\UserRegistrationSteps.cs" />
@@ -125,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\App.config" />
+    <None Include="Features\StoreSearchBar.feature" />
     <None Include="Features\UserForgotPassword.feature" />
     <None Include="Features\UserLogin.feature" />
     <None Include="Features\UserRegistration.feature" />
