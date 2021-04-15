@@ -125,7 +125,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("That I am a client on the Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
- testRunner.When("I search by \"Dress\" in the store search bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I search by \"Dress\" in the store", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
  testRunner.Then("I will be redirected to the Search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -169,7 +169,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("That I am a client on the Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 13
- testRunner.When("I search by \"\" in the store search bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I search by \"\" in the store", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 14
  testRunner.Then("I will be redirected to the Search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -214,7 +214,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("That I am a client on the Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 19
- testRunner.When("I search by \"Pasta\" in the store search bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I search by \"@%$#!!!*\" in the store", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 20
  testRunner.Then("I will be redirected to the Search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

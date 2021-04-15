@@ -9,6 +9,7 @@ namespace ProjetoFinal.PageObjects
         private By _bySignOutBtn => By.ClassName("logout");
         private By _byLogoImg => By.ClassName("logo img-responsive");
         private By _bySearchBar => By.Id("search_query_top");
+        private By _byWomenBtn => By.CssSelector("#block_top_menu > ul > li:nth-child(1) > a");
 
         public TemplatePO(IWebDriver driver)
         {
@@ -38,6 +39,12 @@ namespace ProjetoFinal.PageObjects
             IWebElement searchBox = _driver.FindElement(_bySearchBar);
             searchBox.SendKeys(text);
             searchBox.Submit();
+        }
+
+        public void ToGoToWomemCategoryPage()
+        {
+            IWebElement womenBtn = _driver.FindElement(_byWomenBtn);
+            womenBtn.Click();
         }
     }
 }

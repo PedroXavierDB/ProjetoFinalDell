@@ -31,8 +31,8 @@ namespace ProjetoFinal.StepDefinitions
             _loginPage.ToClickForgotPasswordBtn();
         }
         
-        [When(@"I click on the Forgot Your Password button")]
-        public void WhenIClickOnTheForgotYourPasswordButton()
+        [When(@"I click on Forgot Your Password")]
+        public void WhenIClickOnForgotYourPassword()
         {
             _loginPage.ToClickForgotPasswordBtn();
             System.Threading.Thread.Sleep(TimeSpan.FromSeconds(5));
@@ -44,8 +44,8 @@ namespace ProjetoFinal.StepDefinitions
             _forgotPasswordPage.WriteOnEmailBox(ReadConfigs.ReadSetting("Email"));
         }
         
-        [When(@"I click on the Retrieve Password button")]
-        public void WhenIClickOnTheRetrievePasswordButton()
+        [When(@"I click on Retrieve Password")]
+        public void WhenIClickOnRetrievePassword()
         {
             _forgotPasswordPage.ToClickRetrievePasswordBtn();
         }

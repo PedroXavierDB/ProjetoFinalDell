@@ -126,7 +126,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("That I am on the Sign In page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- testRunner.When("I click on the Forgot Your Password button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click on Forgot Your Password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
  testRunner.Then("I will be redirected to the Forgot Password page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -170,7 +170,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I write my already registered email on the Forgot Password page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 14
- testRunner.And("I click on the Retrieve Password button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click on Retrieve Password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
  testRunner.Then("The message \"A confirmation email has been sent to your address\" should be displa" +
@@ -215,7 +215,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I write an invalid email on the Forgot Password page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 20
- testRunner.And("I click on the Retrieve Password button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click on Retrieve Password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
  testRunner.Then("The message \"Invalid email address.\" should be displayed on the Forgot Password p" +
@@ -260,7 +260,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I write an unregistered email on the Forgot Password page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 26
- testRunner.And("I click on the Retrieve Password button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click on Retrieve Password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 27
  testRunner.Then("The message \"There is no account registered for this email address.\" should be di" +
