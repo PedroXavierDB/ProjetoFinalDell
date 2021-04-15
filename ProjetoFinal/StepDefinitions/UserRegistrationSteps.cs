@@ -58,7 +58,7 @@ namespace ProjetoFinal.StepDefinitions
         }
         
         [When(@"I access the Registration page using an unregistered email")]
-        public void WhenIAccessTheRegistrationPage()
+        public void WhenIAccessTheRegistrationPageUsingAnUnregisteredEmail()
         {
             WhenIClickOnTheSignInButton();
             WhenIInsertTheEmailValue();
@@ -71,8 +71,8 @@ namespace ProjetoFinal.StepDefinitions
             _registrationPage.ToFillPersonalPart(_user.FirstName, _user.LastName, _user.Password);
         }
 
-        [When(@"I click on the Create an Account button of the Registration page")]
-        public void WhenIClickOnTheCreateAnAccountButtonOfTheRegistrationPage()
+        [When(@"I click on Create an Account on the Registration page")]
+        public void WhenIClickOnCreateAnAccountOnTheRegistrationPage()
         {
             _registrationPage.ToClickRegisterBtn();
         }

@@ -26,8 +26,8 @@ namespace ProjetoFinal.StepDefinitions
             _homePage.ToGoToHomePageByUrl();
         }
         
-        [When(@"I search by ""(.*)"" in the store search bar")]
-        public void WhenISearchByInTheStoreSearchBar(string p0)
+        [When(@"I search by ""(.*)"" in the store")]
+        public void WhenISearchByInTheStore(string p0)
         {
             _homePage.ToSearchByTheSearchBox(p0);
         }
