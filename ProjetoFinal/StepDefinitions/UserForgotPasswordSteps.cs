@@ -35,31 +35,27 @@ namespace ProjetoFinal.StepDefinitions
         public void WhenIClickOnForgotYourPassword()
         {
             _loginPage.ToClickForgotPasswordBtn();
-            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(5));
         }
-        
-        [When(@"I write my already registered email on the Forgot Password page")]
-        public void WhenIWriteMyAlreadyRegisteredEmailOnTheForgotPasswordPage()
-        {
-            _forgotPasswordPage.WriteOnEmailBox(ReadConfigs.ReadSetting("Email"));
-        }
-        
-        [When(@"I click on Retrieve Password")]
-        public void WhenIClickOnRetrievePassword()
-        {
-            _forgotPasswordPage.ToClickRetrievePasswordBtn();
-        }
-        
-        [When(@"I write an invalid email on the Forgot Password page")]
-        public void WhenIWriteAnInvalidEmailOnTheForgotPasswordPage()
+
+        [When(@"I try to retrieve my password writing an invalid email on the Forgot Password page")]
+        public void WhenITryToRetrieveMyPasswordWritingAnInvalidEmailOnTheForgotPasswordPage()
         {
             _forgotPasswordPage.WriteOnEmailBox("Email.com");
+            _forgotPasswordPage.ToClickRetrievePasswordBtn();
         }
-        
-        [When(@"I write an unregistered email on the Forgot Password page")]
-        public void WhenIWriteAnUnregisteredEmailOnTheForgotPasswordPage()
+
+        [When(@"I try to retrieve my password writing my already registered email on the Forgot Password page")]
+        public void WhenITryToRetrieveMyPasswordWritingMyAlreadyRegisteredEmailOnTheForgotPasswordPage()
+        {
+            _forgotPasswordPage.WriteOnEmailBox(ReadConfigs.ReadSetting("Email"));
+            _forgotPasswordPage.ToClickRetrievePasswordBtn();
+        }
+
+        [When(@"I try to retrieve my password writing an unregistered email on the Forgot Password page")]
+        public void WhenITryToRetrieveMyPasswordWritingAnUnregisteredEmailOnTheForgotPasswordPage()
         {
             _forgotPasswordPage.WriteOnEmailBox($"{Guid.NewGuid()}@hotmail.com");
+            _forgotPasswordPage.ToClickRetrievePasswordBtn();
         }
         
         [Then(@"I will be redirected to the Forgot Password page")]
