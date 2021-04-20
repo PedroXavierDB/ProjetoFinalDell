@@ -29,6 +29,7 @@ namespace ProjetoFinal.StepDefinitions
         public void GivenThatIAmANewClientWithoutRegistration()
         {
             _homePage.ToGoToHomePageByUrl();
+            WhenIClickOnTheSignInButton();
         }
         
         [When(@"I click on the Sign In button")]
@@ -61,7 +62,6 @@ namespace ProjetoFinal.StepDefinitions
         [When(@"I access the Registration page using an unregistered email")]
         public void WhenIAccessTheRegistrationPageUsingAnUnregisteredEmail()
         {
-            WhenIClickOnTheSignInButton();
             WhenIInsertTheEmailValue();
             WhenIClickOnTheCreateAnAccountButtonOfTheLoginPage();     
         }

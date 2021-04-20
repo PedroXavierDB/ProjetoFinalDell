@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataStructures\User.cs" />
+    <Compile Include="PageObjects\CartPO.cs" />
     <Compile Include="PageObjects\CategorySearchPO.cs" />
     <Compile Include="PageObjects\ForgotPasswordPO.cs" />
     <Compile Include="PageObjects\HomePO.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="StepDefinitions\StoreSearchBarSteps.cs" />
     <Compile Include="StepDefinitions\UserForgotPasswordSteps.cs" />
     <Compile Include="StepDefinitions\UserLoginSteps.cs" />
+    <Compile Include="StepDefinitions\UserPurchaseSteps.cs" />
     <Compile Include="StepDefinitions\UserRegistrationSteps.cs" />
     <Compile Include="TestContext\Context.cs" />
     <Compile Include="Config\ReadConfigs.cs" />
@@ -133,6 +135,7 @@
     <None Include="Features\StoreSearchBar.feature" />
     <None Include="Features\UserForgotPassword.feature" />
     <None Include="Features\UserLogin.feature" />
+    <None Include="Features\UserPurchase.feature" />
     <None Include="Features\UserRegistration.feature" />
     <None Include="Config\packages.config" />
   </ItemGroup>
