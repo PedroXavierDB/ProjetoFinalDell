@@ -30,47 +30,46 @@ namespace ProjetoFinal.StepDefinitions
             _homePage.ToGoToLoginPage();
         }
 
-        [When(@"I write my registered email and password")]
-        public void WhenIWriteMyRegisteredEmailAndPassword()
+        [When(@"I try to do my login writing only my email")]
+        public void WhenITryToDoMyLoginWritingOnlyMyEmail()
+        {
+            _loginPage.ToFillLoginEmailAndPasswordFields(_user.Email, "");
+            _loginPage.ToClickLoginBtn();
+        }
+
+        [When(@"I try to do my login writing an invalid email")]
+        public void WhenITryToDoMyLoginWritingAnInvalidEmail()
+        {
+            _loginPage.ToFillLoginEmailAndPasswordFields("Email.com", "");
+            _loginPage.ToClickLoginBtn();
+        }
+
+        [When(@"I try to do my login writing a valid email and an invalid password")]
+        public void WhenITryToDoMyLoginWritingAValidEmailAndAnInvalidPassword()
+        {
+            _loginPage.ToFillLoginEmailAndPasswordFields("teste@hotmail.com", "123");
+            _loginPage.ToClickLoginBtn();
+        }
+
+        [When(@"I try to do my login writing incorrectly my email or password")]
+        public void WhenITryToDoMyLoginWritingIncorrectlyMyEmailOrPassword()
+        {
+            _loginPage.ToFillLoginEmailAndPasswordFields(_user.Email, _user.Password + "000");
+            _loginPage.ToClickLoginBtn();
+        }
+
+        [When(@"I try to do my login writing my registered email and password")]
+        public void WhenITryToDoMyLoginWritingMyRegisteredEmailAndPassword()
         {
             _loginPage.ToFillLoginEmailAndPasswordFields(ReadConfigs.ReadSetting("Email"),
                 ReadConfigs.ReadSetting("Password"));
+            _loginPage.ToClickLoginBtn();
         }
 
         [When(@"I try to do my login without writing my email and password")]
         public void WhenITryToDoMyLoginWithoutWritingMyEmailAndPassword()
         {
             _loginPage.ToClickLoginBtn();
-        }
-
-        [When(@"I try to do my login")]
-        public void WhenITryToDoMyLogin()
-        {
-            _loginPage.ToClickLoginBtn();
-        }
-        
-        [When(@"I write only my email")]
-        public void WhenIWriteOnlyMyEmail()
-        {
-            _loginPage.ToFillLoginEmailAndPasswordFields(_user.Email, "");
-        }
-        
-        [When(@"I write an invalid email")]
-        public void WhenIWriteAnInvalidEmail()
-        {
-            _loginPage.ToFillLoginEmailAndPasswordFields("Email.com", "");
-        }
-        
-        [When(@"I write a valid email and an invalid password")]
-        public void WhenIWriteAValidEmailAndAnInvalidPassword()
-        {
-            _loginPage.ToFillLoginEmailAndPasswordFields("teste@hotmail.com", "123");
-        }
-        
-        [When(@"I write incorrectly my email or password")]
-        public void WhenIWriteIncorrectlyMyEmailOrPassword()
-        {
-            _loginPage.ToFillLoginEmailAndPasswordFields(_user.Email, _user.Password+"000");
         }
         
         [Then(@"I will login in my account")]

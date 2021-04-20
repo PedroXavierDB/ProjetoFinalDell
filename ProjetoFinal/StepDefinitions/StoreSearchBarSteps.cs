@@ -32,15 +32,10 @@ namespace ProjetoFinal.StepDefinitions
             _homePage.ToSearchByTheSearchBox(p0);
         }
         
-        [Then(@"I will be redirected to the Search page")]
-        public void ThenIWillBeRedirectedToTheSearchPage()
-        {
-            StringAssert.Contains(_context.Driver.Url.ToLower(), "controller=search".ToLower());
-        }
-        
         [Then(@"A list of products should be displayed on the Search page")]
         public void ThenAListOfProductsShouldBeDisplayedOnTheSearchPage()
         {
+            StringAssert.Contains(_context.Driver.Url.ToLower(), "controller=search".ToLower());
             int numberOfProducts = _searchPage.NumberOfSearchResults();
             Assert.IsTrue( numberOfProducts > 0, "There are no products on page.");
         }
@@ -48,6 +43,7 @@ namespace ProjetoFinal.StepDefinitions
         [Then(@"The message ""(.*)"" should be displayed on the Search page")]
         public void ThenTheMessageShouldBeDisplayedOnTheSearchPage(string p0)
         {
+            StringAssert.Contains(_context.Driver.Url.ToLower(), "controller=search".ToLower());
             StringAssert.Contains(_context.Driver.PageSource.ToLower(), p0.ToLower());
         }
     }

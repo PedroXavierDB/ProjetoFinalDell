@@ -48,15 +48,16 @@ namespace ProjetoFinal.StepDefinitions
         {
             _loginPage.ToClickSignInBtn();
         }
-        
-        [When(@"I insert all mandatory values")]
-        public void WhenIInsertAllMandatoryValues()
+
+        [When(@"I try to register a new account")]
+        public void WhenITryToRegisterANewAccount()
         {
             _registrationPage.ToFillPersonalPart(_user.FirstName, _user.LastName, _user.Password);
             _registrationPage.ToFillAddressPart(_user.Address, _user.City, _user.State,
                 _user.Country, _user.Zip, _user.MobilePhone);
+            _registrationPage.ToClickRegisterBtn();
         }
-        
+
         [When(@"I access the Registration page using an unregistered email")]
         public void WhenIAccessTheRegistrationPageUsingAnUnregisteredEmail()
         {
@@ -64,16 +65,11 @@ namespace ProjetoFinal.StepDefinitions
             WhenIInsertTheEmailValue();
             WhenIClickOnTheCreateAnAccountButtonOfTheLoginPage();     
         }
-        
-        [When(@"I do not write in at least one of the mandatory fields")]
-        public void WhenIDoNotWriteInAtLeastOneOfTheMandatoryFields()
+
+        [When(@"I try to register a new account without completing all fields")]
+        public void WhenITryToRegisterANewAccountWithoutCompletingAllFields()
         {
             _registrationPage.ToFillPersonalPart(_user.FirstName, _user.LastName, _user.Password);
-        }
-
-        [When(@"I click on Create an Account on the Registration page")]
-        public void WhenIClickOnCreateAnAccountOnTheRegistrationPage()
-        {
             _registrationPage.ToClickRegisterBtn();
         }
 
