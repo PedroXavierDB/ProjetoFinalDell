@@ -6,12 +6,11 @@ Scenario: To search with success
 	When I search by "Dress" in the store
 	Then A list of products should be displayed on the Search page
 
-Scenario: To search with empty search bar
+Scenario Outline: To search
 	Given That I am a client on the Home page
-	When I search by "" in the store
-	Then The message "Please enter a search keyword" should be displayed on the Search page
-
-Scenario: To search for a product that does not exist
-	Given That I am a client on the Home page
-	When I search by "@%$#!!!*" in the store
-	Then The message "No results were found for your search" should be displayed on the Search page
+	When I search by "<Element>" in the store
+	Then The message "<Message>" should be displayed on the Search page
+	Examples: 
+	| TestCase                          | Element  | Message                               |
+	| with empty search bar             |          | Please enter a search keyword         |
+	| for a product that does not exist | @%$#!!!* | No results were found for your search |

@@ -96,7 +96,7 @@ namespace ProjetoFinal.StepDefinitions
         [Then(@"The message ""(.*)"" should be displayed on the Category Search page")]
         public void ThenTheMessageShouldBeDisplayedOnTheCategorySearchPage(string p0)
         {
-            StringAssert.Contains(_context.Driver.PageSource.ToLower(), p0.ToLower());
+            StringAssert.Contains(_context.Driver.PageSource.ToLower(), p0.ToLower(), $"The page source does not contains the message ( {p0} )");
         }
     }
 }
