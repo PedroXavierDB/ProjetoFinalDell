@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "e529dddb-d4a5-4ee3-bb3a-1aff91653c55",
+		"name": "ViaCEP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetRua",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Correct response values\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].cep).to.eql(\"91420-270\");\r",
+							"    pm.expect(jsonData[0].logradouro).to.eql(\"Rua São Domingos\");\r",
+							"    pm.expect(jsonData[0].complemento).to.eql(\"\");\r",
+							"    pm.expect(jsonData[0].bairro).to.eql(\"Bom Jesus\");\r",
+							"    pm.expect(jsonData[0].localidade).to.eql(\"Porto Alegre\");\r",
+							"    pm.expect(jsonData[0].uf).to.eql(\"RS\");\r",
+							"    pm.expect(jsonData[0].ibge).to.eql(\"4314902\");\r",
+							"    pm.expect(jsonData[0].gia).to.eql(\"\");\r",
+							"    pm.expect(jsonData[0].ddd).to.eql(\"51\");\r",
+							"    pm.expect(jsonData[0].siafi).to.eql(\"8801\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://viacep.com.br/ws/{{UF}}/{{Cidade}}/{{Rua}}/json",
+					"protocol": "https",
+					"host": [
+						"viacep",
+						"com",
+						"br"
+					],
+					"path": [
+						"ws",
+						"{{UF}}",
+						"{{Cidade}}",
+						"{{Rua}}",
+						"json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetRuaError",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://viacep.com.br/ws/{{Rua}}/{{UF}}/{{Cidade}}/json",
+					"protocol": "https",
+					"host": [
+						"viacep",
+						"com",
+						"br"
+					],
+					"path": [
+						"ws",
+						"{{Rua}}",
+						"{{UF}}",
+						"{{Cidade}}",
+						"json"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

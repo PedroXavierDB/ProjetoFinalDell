@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "6f5e5e2e-3bec-488f-99a5-7610e97fbd8c",
+		"name": "CEP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetCEP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Correct response values\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.cep).to.eql(\"90620-200\");\r",
+							"    pm.expect(jsonData.logradouro).to.eql(\"Rua Coronel Villagran Cabrita\");\r",
+							"    pm.expect(jsonData.complemento).to.eql(\"\");\r",
+							"    pm.expect(jsonData.bairro).to.eql(\"Partenon\");\r",
+							"    pm.expect(jsonData.localidade).to.eql(\"Porto Alegre\");\r",
+							"    pm.expect(jsonData.uf).to.eql(\"RS\");\r",
+							"    pm.expect(jsonData.ibge).to.eql(\"4314902\");\r",
+							"    pm.expect(jsonData.gia).to.eql(\"\");\r",
+							"    pm.expect(jsonData.ddd).to.eql(\"51\");\r",
+							"    pm.expect(jsonData.siafi).to.eql(\"8801\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://viacep.com.br/ws/{{Cep}}/json/",
+					"protocol": "https",
+					"host": [
+						"viacep",
+						"com",
+						"br"
+					],
+					"path": [
+						"ws",
+						"{{Cep}}",
+						"json",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCEPError",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://viacep.com.br/ws/123456789/json/",
+					"protocol": "https",
+					"host": [
+						"viacep",
+						"com",
+						"br"
+					],
+					"path": [
+						"ws",
+						"123456789",
+						"json",
+						""
+					],
+					"query": [
+						{
+							"key": "CEP",
+							"value": "90620200",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

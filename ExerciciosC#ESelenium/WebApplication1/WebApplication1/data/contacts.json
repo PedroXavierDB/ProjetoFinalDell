@@ -1,0 +1,37 @@
+[
+    {
+      "Id": 1,
+      "Name": "contact 1",
+      "Email": "contact1@test.com",
+      "Age": 25,
+      "Salary": 2200.55
+    },
+    {
+      "Id": 2,
+      "Name": "contact 2",
+      "Email": "contact2@test.com",
+      "Age": 30,
+      "Salary": 2255.60
+    },
+    {
+      "Id": 3,
+      "Name": "contact 3",
+      "Email": "contact3@test.com",
+      "Age": 35,
+      "Salary": 2155.78
+    },
+    {
+      "Id": 4,
+      "Name": "contact 4",
+      "Email": "contact4@test.com",
+      "Age": 40,
+      "Salary": 2234.58
+    },
+    {
+      "Id": 5,
+      "Name": "contact 5",
+      "Email": "contact5@test.com",
+      "Age": 45,
+      "Salary": 2207.04
+    }
+  ]
